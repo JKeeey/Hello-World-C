@@ -1,0 +1,5 @@
+I used the assets found at https://assetstore.unity.com/packages/3d/props/polygon-starter-pack-low-poly-3d-art-by-synty-156819 for my maze.
+
+I only encountered two problems while building the maze experience. 
+The first problem was that the left controller raycast and teleport reticle would constantly strobe. I discovered the root cause of this to be the raycast mask option in the left controller's XR Ray Interactor. I had to move the teleport gameObjects to their own layer as the raycast was trying to cast onto everything in the scene.
+The second problem was that the teleportation would put me in a weird position whenever I would physically turn (no controller movement) and teleport to a position. I believe setting the Match Orientation option under the teleporation configuration in the teleportation area component for each teleport gameObject to "World Space Up" with "Match Directional" enabled helped with this. It is not perfect, but I hope future modules help me learn how to fix this.
